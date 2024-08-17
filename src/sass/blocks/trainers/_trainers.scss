@@ -1,0 +1,50 @@
+.trainers {
+
+    &__slider {
+        margin-top: 60px;
+
+        &-content {
+            display: flex;
+            justify-content: flex-start;
+            column-gap: 40px;
+
+            margin: 0 auto;
+            margin-left: 20px;
+        }
+
+        &-controllers {
+            display: flex;
+            justify-content: space-between;
+
+            width: 90px;
+
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        &-item {
+
+            &__photo {
+
+            }
+
+            &__info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                height: 57px;
+
+                margin-top: 20px;
+
+                :nth-child(2) {
+                    color: #141024B3;
+                }
+            }
+
+            :nth-child(3) {
+                margin-top: 20px;
+            }
+        }
+    }
+}

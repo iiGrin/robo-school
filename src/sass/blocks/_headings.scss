@@ -1,0 +1,16 @@
+.title {
+    font-size: 50px;
+    font-weight: 600;
+
+    &_main {
+        font-size: 70px;
+    }
+
+    &_section {
+        margin-left: 20px;
+    }
+
+    &_item {
+        font-size: 24px;
+    }
+}

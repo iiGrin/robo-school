@@ -1,0 +1,17 @@
+.skills {
+    background-color: #F9F9F9;
+
+    padding: 100px 0;
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 360px);
+        row-gap: 40px;
+        column-gap: 40px;
+
+        margin-top: 60px;
+        
+        font-size: 18px;
+        color: #141024B3;
+    }
+}

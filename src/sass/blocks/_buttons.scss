@@ -1,0 +1,48 @@
+.button {
+    width: 260px;
+    height: 80px;
+    border: none;
+    border-radius: 5px;
+    background-color: $main-color;
+
+    font-size: 18px;
+    color: #fff; 
+
+    &_link {
+        background-color: unset;
+
+        width: unset;
+        height: unset;
+
+        line-height: 160%;
+        color: $main-color;
+    }
+
+    &_arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: #000;
+
+        span {
+            display: block;
+
+            width: 12px;
+            height: 3px;
+            border-radius: 2px;
+            background-color: #fff;
+
+            margin: 0 auto;
+
+            transform: translateX(-2px) translateY(2px) rotate(45deg);
+        }
+
+        :nth-child(1) {
+            transform: translateX(-2px) translateY(-2px) rotate(-45deg);
+        }
+
+        &-next {
+            rotate: 180deg;
+        }
+    }
+}
