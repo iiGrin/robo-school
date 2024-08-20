@@ -11,16 +11,14 @@
     padding: 39px 100px;
 
     z-index: 100;
+}
 
+.logo, a {
+    color: #fff;
+   
     font-size: 30px;
     font-weight: 700;
-    color: #fff;
-
-    a {
-        color: #fff;
-        
-        text-decoration: none;
-    }
+    text-decoration: none;
 }
 
 .nav__menu {
@@ -33,8 +31,10 @@
 
         list-style-type: none;
 
-        font-size: 20px;
-        font-weight: 400;
+        a {
+            font-size: 20px;
+            font-weight: 400;
+        }
     }
 }
 
