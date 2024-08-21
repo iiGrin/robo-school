@@ -2,7 +2,7 @@
     padding: 120px 0;
 
     &__info {
-        width: 891px;
+        max-width: 891px;
 
         font-size: 30px;
 
@@ -14,7 +14,7 @@
     &__reasons {
         display: grid;
         grid-template-columns: repeat(auto-fit, 260px);
-        justify-content: space-between;
+        justify-content: space-evenly;
         row-gap: 40px;
         column-gap: 20px;
 

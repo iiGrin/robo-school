@@ -1,21 +1,37 @@
 .header {
     position: absolute;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
     width: 100%;
     height: 108px;
 
-    padding: 39px 100px;
+    padding: 30px 40px;
 
     z-index: 100;
+
+    &__wrapper {
+        position: relative;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        max-width: 1200px;
+
+        margin: 0 auto;
+    }
+
+    &__phone {
+
+        &_mobile {
+            display: none;
+        }
+    }
 }
 
-.logo, a {
+.logo,
+a {
     color: #fff;
-   
+
     font-size: 30px;
     font-weight: 700;
     text-decoration: none;
@@ -40,4 +56,95 @@
 
 .hamburger {
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 12px 9px;
+
+    span {
+        display: block;
+        
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .header {
+        height: 100px;
+    }
+
+    .logo, 
+    a {
+    color: #fff;
+
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    }
+
+    .nav__menu {
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+    
+            max-width: 284px;
+        
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .header__phone {
+        display: none;
+
+        &_mobile {
+            display: block;
+            
+            height: 40px;
+
+            img {
+                width: 40px;
+                background-color: #fff;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+
+        &__phone_mobile {
+            margin-right: 50px;
+        }
+    }
+    .nav__menu {
+        display: none;
+    }
+
+    .hamburger {
+        position: absolute;
+        right: 0;
+
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header {
+        padding: 8px 10px;
+
+        height: unset;
+
+        .logo {
+            font-size: 18px;
+            }
+    }
 }

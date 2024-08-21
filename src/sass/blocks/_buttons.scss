@@ -6,7 +6,7 @@
     background-color: $main-color;
 
     font-size: 18px;
-    color: #fff; 
+    color: #fff;
 
     &_link {
         background-color: unset;
@@ -48,5 +48,21 @@
         &-next {
             rotate: 180deg;
         }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .button {
+
+        &_promo {
+            width: 240px;
+            height: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .button {
+        font-size: 16px;
     }
 }

@@ -1,4 +1,6 @@
 .trainers {
+    overflow: hidden;
+
     padding-top: 120px;
 
     &__slider {
@@ -23,23 +25,84 @@
         }
 
         &-item {
+            width: 360px;
 
             &__info {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-
-                height: 57px;
+                row-gap: 9px;
 
                 margin-top: 20px;
+            }
 
-                :nth-child(2) {
-                    color: #141024B3;
+            &__major {
+                font-size: 18px;
+                color: #141024B3;
+            }
+
+            button {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .trainers {
+        padding: 80px 0;
+   
+        &__slider-item {
+            width: 300px;
+
+            &__photo {
+                height: 417px;
+            }
+
+            &__major {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .trainers {
+        padding: 60px 0;
+
+        &__slider-content {
+            column-gap: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .trainers {
+   
+        &__slider {
+
+            &-item {
+                width: 220px;
+    
+                &__photo {
+                    height: 306px;
+                }
+    
+                &__info {
+                    row-gap: 10px;
+                }
+    
+                &__major {
+                    font-size: 14px;
+                }
+    
+                button {
+                    font-size: 16px;
                 }
             }
 
-            :nth-child(3) {
-                margin-top: 20px;
+            &-controllers {
+                margin-top: 40px;
             }
         }
     }

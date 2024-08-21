@@ -1,15 +1,18 @@
 .courses {
+    overflow: hidden;
+
     padding: 120px 0;
 
     &__items {
         display: flex;
         justify-content: flex-start;
-        align-items: center; 
+        align-items: center;
         column-gap: 40px;
 
         height: 500px;
 
         margin-top: 60px;
+        padding: 20px 0;
     }
 
     &__item {
@@ -19,7 +22,7 @@
         align-items: center;
 
         width: 360px;
-        height: 460px;
+        height: 100%;
         border: 1px solid #14102433;
         border-radius: 20px;
 
@@ -42,10 +45,11 @@
         }
 
         &:hover {
-            height: 500px;
+            height: calc(100% + 40px);
             background-color: #000;
 
             color: #fff;
         }
     }
 }
+

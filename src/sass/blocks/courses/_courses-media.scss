@@ -1,0 +1,50 @@
+@media screen and (max-width: 992px) {
+    .trainers {
+        padding: 80px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .courses {
+        padding: 60px 0;
+
+        &__items {
+            height: 470px;
+
+            margin-top: 40px;
+        }
+
+        &__item {
+            width: 330px;
+
+            padding: 40px 25px;
+
+            &-major {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .courses {
+
+        &__items {
+            height: 440px;
+        }
+
+        &__item {
+            width: 300px;
+
+            padding: 40px 20px;
+
+            button {
+                width: 260px;
+            }
+        }
+    }
+}

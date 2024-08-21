@@ -1,0 +1,37 @@
+@media screen and (max-width: 992px) {
+    .skills {
+        padding: 80px 0;
+
+        :nth-child(1) {
+            text-align: center;
+        }
+        
+        &__items {
+            justify-content: center;
+
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .skills {
+        padding: 60px 0;
+
+        &__item {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .skills {
+        
+        &__items {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
+
+            margin-top: 40px;
+        }
+    }
+}
+

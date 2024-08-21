@@ -1,0 +1,39 @@
+@media screen and (max-width: 992px) {
+    .about {
+        padding: 80px 0;
+
+        &__info {
+            font-size: 26px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        padding: 60px 0;
+
+        &__reasons {
+
+
+            &-item {
+                font-size: 16px;
+                line-height: 135%;
+                text-align: center;
+
+                span {
+                    font-size: 60px;
+                }
+            }
+        }
+    }    
+}
+
+@media screen and (max-width: 576px) {
+    .about {
+
+
+        &__info {
+            font-size: 20px;
+        }
+    }    
+}

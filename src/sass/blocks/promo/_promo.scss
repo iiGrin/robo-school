@@ -8,6 +8,8 @@
     color: #fff;
 
     &__wrapper {
+        position: relative;
+
         display: flex;
         justify-content: space-between;
     }
@@ -22,34 +24,20 @@
 
         margin-top: 236px;
 
-        &-descr {
+        &-subtitle {
             max-width: 478px;
 
             font-size: 20px;
             font-weight: 400;
+
+            br {
+                display: none;
+            }
         }
     }
 
     &__photo {
-        // position: absolute;
-        // bottom: 0;
-        // left: 50%;
-
-
         max-width: 600px;
         object-fit: contain;
     }
-}
-
-@media screen and (max-width: 1280px) {
-    .promo {
-
-        &__photo {
-            // left: 100%;
-            // transform: translateX(calc(-100% - 30px));
-
-            width: calc(50%);
-        }
-    }
-    
 }

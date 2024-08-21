@@ -17,11 +17,6 @@
         width: 476px;
 
         padding-top: 19px;
-
-        :nth-child(1) {
-            font-size: 36px;
-            font-weight: 400;
-        }
     }
 
     &__subtitle {
@@ -40,6 +35,8 @@
 
         input {
             height: 64px;
+            border-radius: 5px;
+            border: none; 
 
             padding: 19px 20px;
 

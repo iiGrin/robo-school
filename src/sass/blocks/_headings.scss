@@ -3,13 +3,80 @@
     font-weight: 600;
 
     &_main {
-        font-size: 70px;
+        font-size: 68px;
     }
 
     &_section {
     }
 
+    &_subscribe {
+        font-size: 36px;
+        font-weight: 400;
+    }
+
     &_item {
         font-size: 24px;
     }
+}
+
+@media screen and (max-width: 1200px) {
+    .title {
+
+        &_main {
+            font-size: 48px;
+        }
+
+        &_section {
+            font-size: 48px;
+        }
+
+        &_subscribe {
+            font-size: 36px;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .title {
+
+        &_main {
+            font-size: 36px;
+        }
+
+        &_subscribe {
+            font-size: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+
+        &_main {
+            text-align: center;
+        }
+
+        &_section {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        &_item {
+            font-size: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .title {
+
+        &_main {
+            font-size: 30px;
+        }
+
+        &_section {
+            font-size: 30px;
+            line-height: 140%;
+        }
+    }    
 }
