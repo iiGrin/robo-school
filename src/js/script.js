@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form');
 
     const message = {
-        loading: 'img/form/spinner.svg',
+        loading: 'icons/form/spinner.svg',
         success: 'Спасибо, мы скоро с вами свяжемся',
         failure: 'Что-то пошло не так...'
     };
@@ -62,6 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            const statusMessage = document.createElement('img'); // создаем спиннер загрузки/отправки данных
+            statusMessage.src = message.loading;
+            statusMessage.style.cssText = 
+                                        `
+                                        display: block;
+                                        margin: 0 auto
+                                        `;
+            form.insertAdjacentElement('afterend', statusMessage);
 
             // создаем запрос
             const request = new XMLHttpRequest();
@@ -73,13 +81,40 @@ document.addEventListener('DOMContentLoaded', () => {
             request.send(formData); //отправляем форму данных
             request.addEventListener('load', () => {
                 if (request.status === 200) {
-                    console.log('done');
+                    showStatusMessage(message.success);
                     form.reset(); // очищаем форму
+                    statusMessage.remove();
                 } else {
-                    console.log('error');
+                    showStatusMessage(message.failure);
                 }
             });
         });
+    }
+
+    // функция отрисовки окна ответа пользователю после отправки данных
+    function showStatusMessage(message) {
+        const prevModalDialog = document.querySelector('.modal__dialog'); // обертка окна ответа
+        prevModalDialog.classList.add('hide'); // скрываем на этапе создания
+        openModal();
+
+        const thanksModal = document.createElement('div'); // внутренность окна ответа
+        thanksModal.classList.add('modal__dialog');
+        thanksModal.innerHTML = 
+                                `
+                                <div class="modal__content">
+                                    <div class="modal__close" data-close>&times;</div>
+                                    <div class="modal__title">${message}</div>
+                                </div>
+                                `;
+
+        document.querySelector('.modal').append(thanksModal); // отрисовка
+        setTimeout(() => {
+            thanksModal.remove(); // удаление ответа
+            // возвращаем форму отправки 
+            prevModalDialog.classList.add('show');
+            prevModalDialog.classList.remove('hide');
+        }, 4000);
+
     }
 
     forms.forEach(item => {
