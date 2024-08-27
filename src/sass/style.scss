@@ -37,6 +37,14 @@ a {
     margin: 0 auto;
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 @media screen and (max-width: 1280px) {
     .container {
         width: auto;
@@ -62,6 +70,7 @@ a {
 @import "blocks/headings";
 @import "blocks/buttons";
 @import "blocks/footer";
+@import "blocks/modal";
 
 // main page
 @import "blocks/promo/promo";

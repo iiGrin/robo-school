@@ -170,19 +170,19 @@
                     <h3 class="title title_item">- PRO -</h3>
                     <div class="courses__item-price">20.000 ₽</div>
                     <div class="courses__item-major">УМК по робототетхнике и программированию</div>
-                    <button class="button button_item">Оставить заявку</button>
+                    <button class="button button_item" data-modal>Оставить заявку</button>
                 </div>
                 <div class="courses__item">
                     <h3 class="title title_item">- ROBO -</h3>
                     <div class="courses__item-price">20.000 ₽</div>
                     <div class="courses__item-major">УМК по робототетхнике и программированию</div>
-                    <button class="button button_item">Оставить заявку</button>
+                    <button class="button button_item" data-modal>Оставить заявку</button>
                 </div>
                 <div class="courses__item">
                     <h3 class="title title_item">- PROG -</h3>
                     <div class="courses__item-price">20.000 ₽</div>
                     <div class="courses__item-major">УМК по робототетхнике и программированию</div>
-                    <button class="button button_item">Оставить заявку</button>
+                    <button class="button button_item" data-modal>Оставить заявку</button>
                 </div>
             </div>
         </div>
@@ -213,6 +213,21 @@
         </div>
         <h3 class="copyright">© ROBO.SCHOOL</h3>
     </footer>
+
+    <div class="modal hide">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form action="#" class="subscribe__form">
+                    <div class="modal__close" data-close>&times;</div>
+                    <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
+                    <input required type="text" name="name" placeholder="Имя">
+                    <input required type="phone" name="phone" placeholder="Телефон">
+                    <input required type="email" name="email" placeholder="E-mail">
+                    <button class="button button_form">Оформить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
