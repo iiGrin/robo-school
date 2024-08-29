@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             thanksModal.remove(); // удаление ответа
             // возвращаем форму отправки 
-            prevModalDialog.classList.add('show');
+            // prevModalDialog.classList.add('show'); // создает модальное окно ответа при повторном вызове
             prevModalDialog.classList.remove('hide');
             closeModal();
         }, 4000);
