@@ -11,7 +11,7 @@
 
     &__dialog {
 
-        width: 600px;
+        max-width: 600px;
         
         margin: 40px auto;
     }
@@ -25,6 +25,10 @@
         background-color: $main-color;
 
         padding: 50px 50px;
+
+        form {
+            width: 100%;
+        }
     }
 
     &__close {
@@ -45,4 +49,20 @@
         color: #fff;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    .modal {
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .modal {
+        padding: 0 10px;
+
+        &__content {
+            padding: 40px 10px;
+        }
+    }
 }

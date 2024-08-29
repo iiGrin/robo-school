@@ -4,15 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Modal
     const 
-    modalButton = document.querySelectorAll('[data-modal]'),
-    modalClose = document.querySelector('[data-close]'),
-    modal = document.querySelector('.modal');
+        modalButton = document.querySelectorAll('[data-modal]'),
+        modalClose = document.querySelector('[data-close]'),
+        modal = document.querySelector('.modal');
 
     // функция открытия модального окна
     function openModal() {
         modal.classList.add('show');
         modal.classList.remove('hide');
         document.body.style.overflow = 'hidden';
+        clearInterval(showModalTimer); // останавливаем вызов по таймеру, если уже вызван другой способ
+    }
+
+    const showModalTimer = setTimeout(openModal, 15000);
+
+    // открытие модального окна при скроле страницы до конца [scroll-end]
+    function showModalByScroll() {
+        if (window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            openModal();
+            window.scrollY -= 1;
+            window.removeEventListener('scroll', showModalByScroll);
+        }
     }
 
     // функция закрытия модального окна
@@ -28,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
             openModal();
         });
     });
+
+    // [scroll-end] 
+    window.addEventListener('scroll', showModalByScroll);
 
     //закрытие модального окна по нажатию на кнопку и пустую область
     modal.addEventListener('click', (e) => {
@@ -58,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         failure: 'Что-то пошло не так...'
     };
 
+    // функция отправки данных
     function postData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -69,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                         display: block;
                                         margin: 0 auto
                                         `;
-            form.insertAdjacentElement('afterend', statusMessage);
+            form.append(statusMessage); // fix: добавляем спиннер вниз после формы, т.к. обертка имеет flex верстку
+            // form.insertAdjacentElement('afterend', statusMessage);
 
             // создаем запрос
             const request = new XMLHttpRequest();
@@ -103,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 `
                                 <div class="modal__content">
                                     <div class="modal__close" data-close>&times;</div>
-                                    <div class="modal__title">${message}</div>
+                                    <div class="modal__title" style="margin: 0; font-size: 30px">${message}</div>
                                 </div>
                                 `;
 
@@ -113,10 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // возвращаем форму отправки 
             prevModalDialog.classList.add('show');
             prevModalDialog.classList.remove('hide');
+            closeModal();
         }, 4000);
 
     }
 
+    // отправка данных на сервер
     forms.forEach(item => {
         postData(item);
     });
