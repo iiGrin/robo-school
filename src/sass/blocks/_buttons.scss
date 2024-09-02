@@ -6,16 +6,35 @@
     background-color: $main-color;
 
     font-size: 18px;
+    font-weight: 400;
     color: #fff;
+    cursor: pointer;
+
+    transition: all .2s;
+
+    &:active {
+        scale: .95;
+    }
+
+    &_promo {
+        height: unset;
+
+        line-height: 80px;
+        text-align: center;
+    }
 
     &_link {
         background-color: unset;
 
-        width: unset;
-        height: unset;
+        width: 94px;
+        height: 31px;
 
         line-height: 160%;
         color: $main-color;
+
+        &:hover {
+            border: 1px solid rgba($color: $main-color, $alpha: .6);
+        }
     }
 
     &_item {
@@ -48,6 +67,18 @@
         &-next {
             rotate: 180deg;
         }
+
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 4px 4px;
+
+            scale: 1.10;
+        }
+
+        &:active {
+            box-shadow: unset;
+
+            scale: 1;
+        }
     }
 }
 
@@ -56,7 +87,9 @@
 
         &_promo {
             width: 240px;
-            height: 60px;
+            height: unset;
+
+            line-height: 60px;
         }
     }
 }

@@ -1,7 +1,7 @@
 .trainers {
     overflow: hidden;
 
-    padding-top: 120px;
+    padding: 120px 0 10px 0;
 
     &__slider {
         margin-top: 60px;
@@ -25,7 +25,19 @@
         }
 
         &-item {
+            position: relative;
+
             width: 360px;
+            // border-radius: 28px;
+
+            // padding: 5px;
+
+            // transition: all .2s;
+
+            &__photo {
+                // width: 350px;
+                border-radius: 24px;
+            }
 
             &__info {
                 display: flex;
@@ -34,6 +46,7 @@
                 row-gap: 9px;
 
                 margin-top: 20px;
+
             }
 
             &__major {
@@ -44,66 +57,16 @@
             button {
                 margin-top: 20px;
             }
-        }
-    }
-}
 
-@media screen and (max-width: 992px) {
-    .trainers {
-        padding: 80px 0;
-   
-        &__slider-item {
-            width: 300px;
+            &:hover {
+                // box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
+                
+                cursor: pointer;
 
-            &__photo {
-                height: 417px;
-            }
-
-            &__major {
-                font-size: 16px;
+                // scale: (1.05);
+                // transition: all .2s;
             }
         }
     }
 }
 
-@media screen and (max-width: 768px) {
-    .trainers {
-        padding: 60px 0;
-
-        &__slider-content {
-            column-gap: 20px;
-        }
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .trainers {
-   
-        &__slider {
-
-            &-item {
-                width: 220px;
-    
-                &__photo {
-                    height: 306px;
-                }
-    
-                &__info {
-                    row-gap: 10px;
-                }
-    
-                &__major {
-                    font-size: 14px;
-                }
-    
-                button {
-                    font-size: 16px;
-                }
-            }
-
-            &-controllers {
-                margin-top: 40px;
-            }
-        }
-    }
-}

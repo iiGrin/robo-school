@@ -1,17 +1,21 @@
 @media screen and (max-width: 992px) {
-    .trainers {
+    .courses {
         padding: 80px 0;
+
+        &__items {
+            margin-top: 40px;
+        }
     }
 }
 
 @media screen and (max-width: 768px) {
     .courses {
-        padding: 60px 0;
+        padding: 60px 0 ;
 
         &__items {
             height: 470px;
 
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         &__item {
