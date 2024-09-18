@@ -1,0 +1,53 @@
+{
+  "trainers": [
+    {
+      "src": "img/slider/irina.jpeg",
+      "alt": "irina photo",
+      "name": "Ирина Лайм",
+      "major": "преподаватель по робототехнике",
+      "id": "42aa"
+    },
+    {
+      "src": "img/slider/marina.jpeg",
+      "alt": "marina photo",
+      "name": "Марина Орлова",
+      "major": "преподаватель по робототехнике",
+      "id": "42aa"
+    },
+    {
+      "src": "img/slider/maksim.jpeg",
+      "alt": "maksim photo",
+      "name": "Максим Петров",
+      "major": "преподаватель по программированию",
+      "id": "42aa"
+    },
+    {
+      "src": "img/slider/konstantin.jpeg",
+      "alt": "konstantin photo",
+      "name": "Константин Назаров",
+      "major": "преподаватель по робототехнике",
+      "id": "42aa"
+    },
+    {
+      "src": "img/slider/lisa.jpeg",
+      "alt": "lisa photo",
+      "name": "Лиза Весенняя",
+      "major": "преподаватель по робототехнике",
+      "id": "42aa"
+    }
+  ],
+  "requests": [
+    {
+      "id": "5c25",
+      "name": "name",
+      "phone": "phone",
+      "email": "123@123"
+    },
+    {
+      "id": "dcef",
+      "name": "namename",
+      "phone": "123123",
+      "email": "mmmmmmm@nnnnn"
+    }
+  ]
+}

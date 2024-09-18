@@ -25,10 +25,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Trainer card class
+    class TrainerCard { 
+        constructor(src, alt, name, major, parentSelector, ...classes) {
+            this.src = src;
+            this.alt = alt;
+            this.name = name;
+            this.major = major;
+            this.classes = classes;
+            this.parent = document.querySelector(parentSelector);
+        }
+
+        render() { // метод отрисовки по конструктору
+            const element = document.createElement('div');
+            if (!this.classes.length) {
+                this.element = 'trainers__slider-item';
+                element.classList.add(this.element);
+            } else {
+                this.classes.forEach(className => element.classList.add(className));
+            }
+
+            element.innerHTML += 
+            `
+                <img src="${this.src}" alt="${this.alt}" class="trainers__slider-item__photo">
+                <div class="trainers__slider-item__info">
+                    <h3 class="title title_item">${this.name}</h3>
+                    <div class="trainers__slider-item__major">${this.major}</div>
+                </div>
+                <button class="button button_link">Подробнее</button>
+            `;
+
+            this.parent.append(element);
+        };
+    }
+
+    // функция получения данных с сервера
+    const getResource = async (url) => {
+        const result = await fetch(url);
+        if (!result.ok) { // ошибка получения данных
+            throw new Error(`Couldn't fetch ${url}, status: ${result.status}`);
+        }
+
+        return await result.json(); 
+    }
+
+    getResource('http://localhost:3000/trainers')
+        .then(data => { // отрисовка полученных данных
+            data.forEach(({src, alt, name, major}) => {
+                new TrainerCard(src, alt, name, major, '.trainers__slider .trainers__slider-content').render();
+            });
+        });
+
     // Modal
     const
         modalButton = document.querySelectorAll('[data-modal]'),
-        modalClose = document.querySelector('[data-close]'),
         modal = document.querySelector('.modal');
 
     function openModal() { // функция открытия модального окна
@@ -39,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const showModalTimer = setTimeout(openModal, 15000);
-
 
     function showModalByScroll() { // открытие модального окна при скроле страницы до конца [scroll-end]
         if (window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
@@ -75,12 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-
-
-
-
-
     // Forms
     const forms = document.querySelectorAll('form');
 
@@ -90,7 +133,19 @@ document.addEventListener('DOMContentLoaded', () => {
         failure: 'Что-то пошло не так...'
     };
 
-    function postData(form) { // функция отправки данных
+    const postData = async (url, data) => { // функция отправки запроса на сервер 
+        const res = await fetch(url, { // async/await - что-бы дождаться получения данных
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
+        });
+
+        return await res.json();
+    };
+
+    function bindPostData(form) { // функция отправки данных
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -101,33 +156,28 @@ document.addEventListener('DOMContentLoaded', () => {
                                         display: block;
                                         margin: 0 auto
                                         `;
-            form.append(statusMessage); // fix: добавляем спиннер вниз после формы, т.к. обертка имеет flex верстку
+            // form.append(statusMessage); // fix: добавляем спиннер вниз после формы, т.к. обертка имеет flex верстку
 
             // устанавливаем тип
             const formData = new FormData(form); // форма данных их атрибутов
 
-            const object = {}; // формирование объекта ответа пользователю
-            formData.forEach(function (value, key) {
-                object[key] = value;
-            });
+            // const object = {}; // формирование объекта ответа пользователю
+            // formData.forEach(function (value, key) {
+            //     object[key] = value;
+            // });
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            fetch('server.php', {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(object)
-            }).then(data => data.text()) // объект ответа формируем в виде строк
-            .then(data => { // положительный ответ
-                console.log(data);
-                showStatusMessage(message.success);
-                form.reset(); // очищаем форму
-                statusMessage.remove();
-            }).catch(() => { // ошибка
-                showStatusMessage(message.failure);
-            }).finally(() => { // финальное действие
-                form.reset();
-            })
+            postData('http://localhost:3000/requests' ,json)
+                .then(data => { // положительный ответ
+                    console.log(data);
+                    showStatusMessage(message.success);
+                    form.reset(); // очищаем форму
+                    statusMessage.remove();
+                }).catch(() => { // ошибка
+                    showStatusMessage(message.failure);
+                }).finally(() => { // финальное действие
+                    form.reset();
+                })
         });
     }
 
@@ -160,7 +210,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // отправка данных на сервер
     forms.forEach(item => {
-        postData(item);
+        bindPostData(item);
     });
 
+    fetch('http://localhost:3000/requests') // json-server
+        .then(data => data.json())
+        .then(res => console.log(res));
 });
